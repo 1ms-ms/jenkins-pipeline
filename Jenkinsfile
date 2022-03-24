@@ -12,7 +12,7 @@ pipeline{
         stage("build"){
             steps   {
                 sh """
-                    docker build -t flask_app .
+                    sudo docker build -t flask_app .
                 """
             }    
         }
