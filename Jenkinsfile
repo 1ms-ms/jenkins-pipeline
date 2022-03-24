@@ -2,7 +2,6 @@ pipeline{
     agent any
     environment {
     AWS_ACCOUNT_ID=”537646401150”
-    AWS_DEFAULT_REGION=”eu-west-1”
     IMAGE_REPO_NAME=”flask_repo”
     IMAGE_TAG=”latest”
     REPOSITORY_URI = “537646401150.dkr.ecr.eu-west-1.amazonaws.com/flask_repo”
