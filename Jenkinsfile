@@ -17,9 +17,11 @@ pipeline{
             }    
         }
         stage("Log in to ECR"){
+            steps   {
                 sh """
                     aws ecr get-login --no-include-email --region eu-west-1
                 """
+            }
         }
          stage("Push to ECR"){
             steps   {
