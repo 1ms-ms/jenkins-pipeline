@@ -1,11 +1,5 @@
 pipeline{
     agent any
-    environment {
-    AWS_ACCOUNT_ID=”537646401150”
-    IMAGE_REPO_NAME=”flask_repo”
-    IMAGE_TAG=”latest”
-    REPOSITORY_URI = “537646401150.dkr.ecr.eu-west-1.amazonaws.com/flask_repo”
-    }
     stages  {
         stage('Initialize'){
             steps {
@@ -25,10 +19,10 @@ pipeline{
          stage("Push to ECR"){
             steps   {
                 sh """
-                    docker tag flask_app ${REPOSITORY_URI}:${IMAGE_TAG}
+                    docker tag flask_app 537646401150.dkr.ecr.eu-west-1.amazonaws.com/flask_repo:latest
                 """
                 sh """
-                    docker push ${REPOSITORY_URI}:${IMAGE_TAG}
+                    docker push 537646401150.dkr.ecr.eu-west-1.amazonaws.com/flask_repo:latest
                 """
             }    
         }
