@@ -19,9 +19,6 @@ pipeline{
          stage("Push to ECR"){
             steps   {
                 sh """
-                    eval $(aws ecr get-login --region "eu-west-1" --no-include-email)
-                """
-                sh """
                     docker tag flask_app 537646401150.dkr.ecr.eu-west-1.amazonaws.com/flask_repo:latest
                 """
                 sh """
