@@ -21,7 +21,7 @@ pipeline{
                 sh """
                     docker tag flask_app 537646401150.dkr.ecr.eu-west-1.amazonaws.com/flask_repo:latest
                 """
-                withCredentials([<object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding>]) {
+                withCredentials([aws(accessKeyVariable:'AWS_ACCESS_KEY_ID', credentialsId:'jenkins-suer', secretKeyVariable:'AWS_SECRET_ACCESS_KEY')]) {
                      sh """
                     docker push 537646401150.dkr.ecr.eu-west-1.amazonaws.com/flask_repo:latest
                     """
