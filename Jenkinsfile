@@ -25,10 +25,10 @@ pipeline{
          stage("Push to ECR"){
             steps   {
                 sh """
-                    docker tag flask_app $(REPOSITORY_URI):$(IMAGE_TAG)
+                    docker tag flask_app ${REPOSITORY_URI}:${IMAGE_TAG}
                 """
                 sh """
-                    docker push $(REPOSITORY_URI):$(IMAGE_TAG)
+                    docker push ${REPOSITORY_URI}:${IMAGE_TAG}
                 """
             }    
         }
